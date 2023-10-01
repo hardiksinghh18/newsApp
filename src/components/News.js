@@ -14,6 +14,10 @@ const News = (props) => {
     const [page, setPage] = useState(1)
     const [totalResults, setTotalRestults] = useState(0)
 
+
+    
+
+
     News.defaultProps = {
         country: 'in',
         pageSize: 30
@@ -26,6 +30,8 @@ const News = (props) => {
 
 
     const updateNews = async () => {
+
+
 
         props.setProgress(10)
         // let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikeyone}&page=${page}&pageSize=${props.pageSize}`
@@ -70,24 +76,24 @@ const News = (props) => {
         setTotalRestults(parsedData.totalResults)
        
     }
-
+    let articleLength=articles.length
     return (
-        <>
+    <>
             <div className="flexitem categoryHeading">
 
                 <h1>{props.categoryHeading} - Top News Headlines </h1> 
             </div>
 
 
-            <InfiniteScroll
-                dataLength={articles&&articles.length}
+          {articleLength&& <InfiniteScroll
+                dataLength={articleLength}
                 next={fetchMoreData}
-                hasMore={articles.length !== totalResults}
+                hasMore={articleLength !== totalResults}
                 loader={<Spinner />}
             >
 
      
-                <div className="container">
+               <div className="container">
                     <div className="row my-5"  >
                         {articles&&articles.map((element) => {
                             return <div className="col-md-4 mb-2" key={element.url}>
@@ -97,7 +103,7 @@ const News = (props) => {
                         })}
                     </div>
                 </div>
-            </InfiniteScroll>
+            </InfiniteScroll>}
 
             <button className='topbutton btn btn-dark' onClick={topclick}>&uarr; </button>
         </>

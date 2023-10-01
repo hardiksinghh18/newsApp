@@ -24,13 +24,13 @@ const NavBar = () => {
         <ul className={showNavs ? "flexitem  navbar-links mobile" : "flexitem  navbar-links"}>
 
 
-          <li className='nav-item'><NavLink className='nav-links' activeclassName="active" to="/">Home</NavLink></li>
-          <li className='nav-item'><NavLink className='nav-links' activeclassName="active" to="/sports">Sports</NavLink></li>
-          <li className='nav-item'><NavLink className='nav-links' activeclassName="active" to="/business">Business</NavLink></li>
-          <li className='nav-item'><NavLink className='nav-links' activeclassName="active" to="/entertainment">Entertainment</NavLink></li>
-          <li className='nav-item'><NavLink className='nav-links' activeclassName="active" to="/health">Health</NavLink></li>
-          <li className='nav-item'><NavLink className='nav-links' activeclassName="active" to="/science">Science</NavLink></li>
-          <li className='nav-item'><NavLink className='nav-links' activeclassName="active" to="/technology">Technology</NavLink></li>
+          <li className='nav-item'><NavLink className='nav-links' activeclassname="active" to="/">Home</NavLink></li>
+          <li className='nav-item'><NavLink className='nav-links' activeclassname="active" to="/sports">Sports</NavLink></li>
+          <li className='nav-item'><NavLink className='nav-links' activeclassname="active" to="/business">Business</NavLink></li>
+          <li className='nav-item'><NavLink className='nav-links' activeclassname="active" to="/entertainment">Entertainment</NavLink></li>
+          <li className='nav-item'><NavLink className='nav-links' activeclassname="active" to="/health">Health</NavLink></li>
+          <li className='nav-item'><NavLink className='nav-links' activeclassname="active" to="/science">Science</NavLink></li>
+          <li className='nav-item'><NavLink className='nav-links' activeclassname="active" to="/technology">Technology</NavLink></li>
 
         </ul>
       </div>

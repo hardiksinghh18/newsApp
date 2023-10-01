@@ -15,10 +15,10 @@ const App =()=> {
  const  pageSize=9
  const apikeyone=process.env.REACT_APP_API_KEY_ONE
  const apikeytwo=process.env.REACT_APP_API_KEY_TWO
-//  const apikeyone=process.env.REACT_MY_API
+
   const[progress,setProgress]=useState(0)
   
-console.log(apikeyone,"hii")
+
     return (
       <BrowserRouter>
         <div>
