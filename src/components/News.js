@@ -13,9 +13,10 @@ const News = (props) => {
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1)
     const [totalResults, setTotalRestults] = useState(0)
+    const [articleLength, setArticleLength] = useState(10)
 
 
-    
+
 
 
     News.defaultProps = {
@@ -34,8 +35,9 @@ const News = (props) => {
 
 
         props.setProgress(10)
-        // let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikeyone}&page=${page}&pageSize=${props.pageSize}`
-        let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikeytwo}&page=${page}&pageSize=${props.pageSize}`
+        let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikeyone}`
+        // let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikeytwo}`
+        // let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikeytwo}&page=${page}&pageSize=${props.pageSize}`
 
         setLoading(true)
         let data = await fetch(url)
@@ -54,56 +56,58 @@ const News = (props) => {
 
     useEffect(() => {
         updateNews()
-    },[])
+    }, [])
 
     const topclick = () => {
         window.scrollTo(0, 0)
     }
-  
 
 
-    const fetchMoreData = async () => {
-        setPage(page+1)
 
-        // let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=27c4a737a8914eddbdc4db517f63a783&page=${page + 1}&pageSize=${props.pageSize}`
-        let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=0ad6ec8ae1e445efb9290cac88ea640f&page=${page+1}&pageSize=${props.pageSize}`
-       
-        let data = await fetch(url)
-     
-        let parsedData = await data.json()
-       
-         setArticles(articles.concat(parsedData.articles))
-        setTotalRestults(parsedData.totalResults)
-       
-    }
-    let articleLength=articles.length
+    // const fetchMoreData = async () => {
+    //     setPage(page + 1)
+
+    //     let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=27c4a737a8914eddbdc4db517f63a783&page=${page + 1}&pageSize=${props.pageSize}`
+    //     // let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=0ad6ec8ae1e445efb9290cac88ea640f&page=${page+1}&pageSize=${props.pageSize}`
+
+    //     let data = await fetch(url)
+
+    //     let parsedData = await data.json()
+
+
+
+    //    setArticles(articles.concat(parsedData.articles))
+    //     setTotalRestults(parsedData.totalResults)
+    //     setArticleLength(articles.length)
+    // }
+    // let articleLength = articles?.length;
     return (
-    <>
+        <>
             <div className="flexitem categoryHeading">
 
-                <h1>{props.categoryHeading} - Top News Headlines </h1> 
+                <h1>{props.categoryHeading} - Top News Headlines </h1>
             </div>
 
 
-          {articleLength&& <InfiniteScroll
+            {/* {articleLength && <InfiniteScroll
                 dataLength={articleLength}
                 next={fetchMoreData}
                 hasMore={articleLength !== totalResults}
                 loader={<Spinner />}
-            >
+            > */}
 
-     
-               <div className="container">
+
+                <div className="container">
                     <div className="row my-5"  >
-                        {articles&&articles.map((element) => {
+                        {articles && articles.map((element) => {
                             return <div className="col-md-4 mb-2" key={element.url}>
                                 <NewsItem title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} />
-                               
+
                             </div>
                         })}
                     </div>
                 </div>
-            </InfiniteScroll>}
+            {/* </InfiniteScroll>} */}
 
             <button className='topbutton btn btn-dark' onClick={topclick}>&uarr; </button>
         </>
@@ -112,3 +116,10 @@ const News = (props) => {
 }
 
 export default News
+
+
+
+
+
+
+
