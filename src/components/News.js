@@ -46,8 +46,8 @@ const News = (props) => {
 
         props.setProgress(60)
 
-        setArticles(parsedData.articles)
-        setTotalRestults(parsedData.totalResults)
+        setArticles(parsedData?.articles)
+        setTotalRestults(parsedData?.totalResults)
         setLoading(false)
 
 
@@ -63,7 +63,7 @@ const News = (props) => {
     }
 
 
-
+console.log(articles)
     // const fetchMoreData = async () => {
     //     setPage(page + 1)
 
